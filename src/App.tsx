@@ -1,6 +1,20 @@
 import React from "react";
+import { useState } from "react";
 
 function App() {
+  const [paypalAmount, setPaypalAmount] = useState(0);
+  const [tokenAmount, setTokenAmount] = useState(0);
+
+  const handlePaypalAmount = (e: any) => {
+    setPaypalAmount(e.target.value);
+    setTokenAmount(e.target.value / 1.5);
+  };
+
+  const handleTokenAmount = (e: any) => {
+    setPaypalAmount(e.target.value * 1.5);
+    setTokenAmount(e.target.value);
+  };
+
   return (
     <div className="text-xl">
       <div className="container mx-auto px-12 max-sm:px-6">
@@ -21,6 +35,8 @@ function App() {
                 type="text"
                 className="px-2 outline-none flex-[1_1_70%]  border-black border-b-[1px] w-full"
                 placeholder="Token Amount"
+                value={tokenAmount}
+                onChange={handleTokenAmount}
               />
             </div>
             <div className="flex justify-center items-center gap-4 w-full max-xl:flex-col">
@@ -29,8 +45,11 @@ function App() {
                 type="text"
                 className="px-2 outline-none flex-[1_1_70%]  border-black border-b-[1px] w-full"
                 placeholder="Paypal Amount"
+                value={paypalAmount}
+                onChange={handlePaypalAmount}
               />
             </div>
+            <button>Pay Paypal</button>
           </div>
         </div>
       </div>
