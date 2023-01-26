@@ -13,11 +13,11 @@ function App() {
 
   const handlePaypalAmount = (e: any) => {
     setPaypalAmount(e.target.value);
-    setTokenAmount(e.target.value / 0.05);
+    setTokenAmount(e.target.value / 1.5);
   };
 
   const handleTokenAmount = (e: any) => {
-    setPaypalAmount(e.target.value * 0.05);
+    setPaypalAmount(e.target.value * 1.5);
     setTokenAmount(e.target.value);
   };
 
